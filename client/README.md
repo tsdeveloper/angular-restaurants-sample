@@ -1,27 +1,37 @@
-# AngularRestaurant
+# Instruções:
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.
+## Requisitos de ambiente necessários para compilar e rodar o software
+1 - Pode rodar em ambientes Linux e Windows 10. 
+2 - É necessário instalar o  .NET Core SDK 3.1
 
-## Development server
+## Instruções de como utilizar o sistema.
+1 - Instalar o dotnet 3.1 conforme instruções da Microsoft seguindo as orientações conforme o seu sistema operacional [DOTNET SDK](https://dotnet.microsoft.com/download).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+2 - Instalar o NodeJS conforme instruções da  [Node JS](https://nodejs.org/en/download/).
 
-## Code scaffolding
+3 - Instalar o Angular conforme instruções da  [Angular CLI](https://cli.angular.io/).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+4 - Abra a pasta do projeto Restaurant.API e altere as configurações de banco de dados no arquivo `appsettings.json`  `appsettings.Development.json`
 
-## Build
+5 - Abra a pasta do projeto Restaurant.API no terminal e execute os comandos  `dotnet restore`,
+ `dotnet build`, `dotnet ef database update -s Restaurant.API`.
+ 
+6 - Adicionei manualmente no banco de dados alguns registros na tabela `Restaurants`.
+ 
+7 - Execute a API localizada na pasta Restaurant.API.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+8 - Abra a pasta client no terminal e execute o comando `ng serve`.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## O que vale destacar no código implementado?
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Projeto utilizando bons Design Pattern e aplicação de clean code com SOLID. Fácil de manutenção, baixo acoplamento, dependência e 
+fácil de extender suas funcionalidades
 
-## Further help
+## O que poderia ser feito para melhorar o sistema?
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Projeto poderia ser criado em ambiente Docker, e também implementação de testes TDD, Testes de Integração.
+Além de criação de um deploy com CI e CD para automatização de tarefas.
+Também poderia ser implementado no Back End autenticação e autorização com Identity. Além disso implementação do OAuth2 no login com Angular.
+Implementação do CRUD do projeto no front end.

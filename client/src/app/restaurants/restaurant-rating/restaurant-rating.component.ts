@@ -62,7 +62,7 @@ export class RestaurantRatingComponent implements OnInit {
 
     this.restaurantService.postRestaurants(restaurantRating)
       .subscribe(res => {
-        
+
         this.router.navigate(['/restaurantes/resumo-votacao', res?.id]);
         }, (err) => {
           console.log(err);
