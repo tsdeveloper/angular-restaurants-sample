@@ -9,7 +9,7 @@ import {BaseOperationsService} from './interface/base-operations.service';
 export abstract class BaseApiService<T> implements BaseOperationsService<T | null> {
 
   constructor(protected http: HttpClient, protected route: string) {
-    this.baseUrl = `${environment.api.baseUrl}/${route}`;
+    this.baseUrl = '';
     this.genericError = `Some Error occcured, Please contact Administrator for the Errors`;
 
   }
@@ -31,15 +31,19 @@ export abstract class BaseApiService<T> implements BaseOperationsService<T | nul
 
   protected initOptionsRoute(options?: any): void {
     this.optionsRoutes = options;
-    this.baseUrl += this.optionsRoutes.route;
+    this.baseUrl =  `${environment.api.baseUrl}/${this.route}/${this.optionsRoutes.route}`;
 
   }
 
-  save(params: HttpParams) {
+  save(params: HttpParams): Observable<T | null>  {
     return this.http.post<T>(this.baseUrl, JSON.stringify(params),{
       observe: 'response', params,
         headers: this.httpOptions.headers
-    });
+    }).pipe(
+      map(res => {
+        return res.body;
+      })
+    );
   }
 
   update(params: HttpParams) {

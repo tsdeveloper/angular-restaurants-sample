@@ -11,13 +11,13 @@ namespace Restaurant.Core.Specification
             var query = inputQuery;
 
             if (spec.Criteria != null)
-                query = inputQuery.Where(spec.Criteria);
+                query = query.Where(spec.Criteria);
 
             if (spec.OrderBy != null)
-                query = inputQuery.OrderBy(spec.OrderBy);
+                query = query.OrderBy(spec.OrderBy);
 
             if (spec.OrderByDescending != null)
-                query = inputQuery.OrderByDescending(spec.OrderByDescending);
+                query = query.OrderByDescending(spec.OrderByDescending);
 
             query = spec.Includes.Aggregate(query, (current, include) => current.Include(include));
 

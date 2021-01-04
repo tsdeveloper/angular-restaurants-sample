@@ -1,5 +1,6 @@
 using Restaurant.Core.Entities.RestaurantRatings;
 using Restaurant.Core.Specification.Interfaces;
+using Restaurant.Core.Validation.RestaurantRatings;
 
 namespace Restaurant.Infra.Services
 {
@@ -17,8 +18,13 @@ namespace Restaurant.Infra.Services
         }
         public RestaurantRating CreateOrderAsync(RestaurantRating restaurant)
         {
+            var resultValidation = new RestaurantRatingEstaConsistenteValidation(_genericRepository).Validate(restaurant);
+            
+            if (!resultValidation.IsValid)
+                return null;
+            
             _unitOfWork.Repository<RestaurantRating>().Add(restaurant);
-
+            
             // save to db
             var result = _unitOfWork.Complete();
 

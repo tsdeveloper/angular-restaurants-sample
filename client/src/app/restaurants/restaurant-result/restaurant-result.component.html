@@ -1,0 +1,36 @@
+<section    class="d-flex justify-content-center align-content-center">
+
+  <div class="card d-flex justify-content-center align-content-center" style="width: 60em;">
+    <div class="card-header">
+     Resultado da Votação
+    </div>
+
+    <div class="card-body">
+      <h1 class="card-text">Restaurante: {{restaurantDetails.name}}</h1>
+
+      <div class="row">
+        <div class="col-12">
+
+            <div class="d-flex justify-content-center flex-column">
+              Total de Avaliação: <p>{{restaurantDetails.rating}}</p>
+              Total de Usuários que votou: <p>{{restaurantDetails.totalUserRating}}</p>
+            </div>
+            <div class="col-md-12 mt-2">
+              <a [routerLink]="['/']" class="btn btn-success">Tela inicial</a>
+
+            </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="card-footer">
+      <ng-template #tt let-i="index" let-v="value">
+        <button class="btn btn-{{i < v ? 'warning' : 'default'}}"
+                >
+          {{i < v ? '&#9733;' : '&#9734;'}}
+        </button>
+      </ng-template>
+    </div>
+  </div>
+
+</section>

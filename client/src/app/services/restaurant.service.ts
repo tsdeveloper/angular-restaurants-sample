@@ -8,6 +8,7 @@ import {map} from 'rxjs/operators';
 import {RestaurantRatingParams} from '../models/restaurantRatings/restaurant-rating-params';
 import {RestaurantRating} from '../models/restaurantRatings/restaurant-rating.model';
 import {Restaurant} from '../models/restaurants/restaurant.model';
+import {RestaurantDetails} from '../models/restaurants/restaurant-details.model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,7 @@ export class RestaurantService extends BaseApiService<Restaurant> {
 
   getRestaurants(restaurantParams?: RestaurantParams): Observable<Restaurant[] | null> {
     const options = {
-      route: '/all-restaurants'
+      route: 'all-restaurants'
     };
     this.initOptionsRoute(options);
     const params = this.setRestaurantParams(restaurantParams);
@@ -37,6 +38,25 @@ export class RestaurantService extends BaseApiService<Restaurant> {
           return res;
         })
       );*/
+  }
+
+  getRestaurant(restaurantParams?: RestaurantParams): Observable<RestaurantDetails | null> {
+    const options = {
+      route: 'restaurant-rating-byid'
+    };
+    this.initOptionsRoute(options);
+    const params = this.setGetRestaurantParams(restaurantParams);
+    return this.findOne(params);
+
+  }
+
+  private setGetRestaurantParams(restaurantParams?: RestaurantParams | undefined): HttpParams {
+    let params = new HttpParams();
+
+    if (restaurantParams?.id && restaurantParams?.id > 0) {
+      params = params.append('id', restaurantParams?.id.toString());    }
+
+    return params;
   }
 
   private setRestaurantParams(restaurantParams?: RestaurantParams | undefined): HttpParams {
@@ -53,15 +73,17 @@ export class RestaurantService extends BaseApiService<Restaurant> {
     return params;
   }
 
-  postRestaurants(restaurantParams?: RestaurantRating) {
+  postRestaurants(restaurantParams: RestaurantRatingParams): Observable<Restaurant | null> {
     const options = {
-      route: '/post-restaurant'
+      route: 'post-restaurant'
     };
     this.initOptionsRoute(options);
+
+    console.log(this.baseUrl);
     const params = this.setCreateRestaurantParams(restaurantParams);
     return this.save(params);
 
-    /*return this.httpClient.get<Restaurant[]>('http://localhost:5000/api/restaurants/all-restaurants')
+/*    return this.httpClient.get<Restaurant[]>('http://localhost:5000/api/restaurants/all-restaurants')
       .pipe(
         map(res => {
           console.log(res);
@@ -70,8 +92,12 @@ export class RestaurantService extends BaseApiService<Restaurant> {
       );*/
   }
 
-  private setCreateRestaurantParams(restaurantParams?: RestaurantRatingParams | undefined): HttpParams {
+  private setCreateRestaurantParams(restaurantParams: RestaurantRatingParams): HttpParams {
     let params = new HttpParams();
+
+    if (restaurantParams?.id) {
+      params = params.append('id', restaurantParams?.id.toString());
+    }
 
     if (restaurantParams?.emailUser) {
       params = params.append('emailUser', restaurantParams?.emailUser);
@@ -79,6 +105,10 @@ export class RestaurantService extends BaseApiService<Restaurant> {
 
     if (restaurantParams?.rating && restaurantParams?.rating > 0) {
       params = params.append('rating', restaurantParams?.rating.toString());
+    }
+
+    if (restaurantParams?.restaurantId && restaurantParams?.restaurantId > 0) {
+      params = params.append('restaurantId', restaurantParams?.restaurantId.toString());
     }
 
     return params;

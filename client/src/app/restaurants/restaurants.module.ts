@@ -9,12 +9,13 @@ import { RestaurantListComponent } from './restaurant-list/restaurant-list.compo
 import {HttpClientModule} from '@angular/common/http';
 import {BaseApiService} from '../services/base-api.service';
 import {RestaurantService} from '../services/restaurant.service';
+import { RestaurantResultComponent } from './restaurant-result/restaurant-result.component';
 
 
 
 @NgModule({
 
-  declarations: [RestaurantRatingComponent, RestaurantListComponent],
+  declarations: [RestaurantRatingComponent, RestaurantListComponent, RestaurantResultComponent],
   imports: [
     CommonModule,
     MatCardModule,

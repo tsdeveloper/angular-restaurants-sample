@@ -15,6 +15,8 @@
                 <form action="" [formGroup]="restaurantForm" >
                   <div class="col-md-12">
                     <label class="col-form-label">Informe seu email:</label>
+                    <input type="hidden" class="form-control" formControlName="id" >
+                    <input type="hidden" class="form-control" formControlName="restaurantId" >
                     <input type="text" class="form-control" formControlName="emailUser" >
                   </div>
 

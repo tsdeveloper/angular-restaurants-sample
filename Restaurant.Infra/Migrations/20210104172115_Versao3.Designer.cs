@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Restaurant.Infra.Data;
 
 namespace Restaurant.Infra.Migrations
 {
     [DbContext(typeof(AppStoreContext))]
-    partial class AppStoreContextModelSnapshot : ModelSnapshot
+    [Migration("20210104172115_Versao3")]
+    partial class Versao3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,7 +28,7 @@ namespace Restaurant.Infra.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime(6)")
-                        .HasDefaultValue(new DateTime(2021, 1, 4, 14, 25, 51, 770, DateTimeKind.Local).AddTicks(3445));
+                        .HasDefaultValue(new DateTime(2021, 1, 4, 14, 21, 15, 24, DateTimeKind.Local).AddTicks(2410));
 
                     b.Property<string>("EmailUser")
                         .IsRequired()
@@ -37,12 +39,7 @@ namespace Restaurant.Infra.Migrations
                     b.Property<int>("Rating")
                         .HasColumnType("int");
 
-                    b.Property<int>("RestaurantId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("RestaurantId");
 
                     b.ToTable("RestaurantRating");
                 });
@@ -73,15 +70,6 @@ namespace Restaurant.Infra.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Restaurant");
-                });
-
-            modelBuilder.Entity("Restaurant.Core.Entities.RestaurantRatings.RestaurantRating", b =>
-                {
-                    b.HasOne("Restaurant.Core.Entities.Restaurants.Restaurant", "Restaurant")
-                        .WithMany("RestaurantRatings")
-                        .HasForeignKey("RestaurantId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
