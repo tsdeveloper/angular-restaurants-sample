@@ -1,0 +1,9 @@
+/var/www/html/personal/employer/DBServer/net/core/restaurant-api/Restaurant.Core/bin/Debug/netcoreapp3.1/Restaurant.Core.deps.json
+/var/www/html/personal/employer/DBServer/net/core/restaurant-api/Restaurant.Core/bin/Debug/netcoreapp3.1/Restaurant.Core.dll
+/var/www/html/personal/employer/DBServer/net/core/restaurant-api/Restaurant.Core/bin/Debug/netcoreapp3.1/Restaurant.Core.pdb
+/var/www/html/personal/employer/DBServer/net/core/restaurant-api/Restaurant.Core/obj/Debug/netcoreapp3.1/Restaurant.Core.csprojAssemblyReference.cache
+/var/www/html/personal/employer/DBServer/net/core/restaurant-api/Restaurant.Core/obj/Debug/netcoreapp3.1/Restaurant.Core.AssemblyInfoInputs.cache
+/var/www/html/personal/employer/DBServer/net/core/restaurant-api/Restaurant.Core/obj/Debug/netcoreapp3.1/Restaurant.Core.AssemblyInfo.cs
+/var/www/html/personal/employer/DBServer/net/core/restaurant-api/Restaurant.Core/obj/Debug/netcoreapp3.1/Restaurant.Core.csproj.CoreCompileInputs.cache
+/var/www/html/personal/employer/DBServer/net/core/restaurant-api/Restaurant.Core/obj/Debug/netcoreapp3.1/Restaurant.Core.dll
+/var/www/html/personal/employer/DBServer/net/core/restaurant-api/Restaurant.Core/obj/Debug/netcoreapp3.1/Restaurant.Core.pdb

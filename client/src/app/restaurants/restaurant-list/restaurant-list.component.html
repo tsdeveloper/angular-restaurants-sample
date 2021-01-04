@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row ">
+    <div class="col-12 d-flex justify-content-center  mt-3">
+      <h1 class="alert alert-heading alert-info">Escolha o restaurante que deseja avaliar</h1>
+    </div>
+    <div *ngFor='let item of items; let i = index' >
+      <div  class="col-md-4 mb-3">
+        <div class="card" style="width: 18rem;" routerLinkActive="active">
+          <img [src]="item.image" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">{{item.name}}</p>
+          </div>
+          <div class="card-footer">
+            <a [routerLink]="['avaliar', item.id]"  type="button" class="btn btn-success">Selecionar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>

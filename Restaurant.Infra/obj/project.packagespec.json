@@ -1,0 +1,89 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "/var/www/html/personal/employer/DBServer/net/core/restaurant-api/Restaurant.Infra/Restaurant.Infra.csproj",
+    "projectName": "Restaurant.Infra",
+    "projectPath": "/var/www/html/personal/employer/DBServer/net/core/restaurant-api/Restaurant.Infra/Restaurant.Infra.csproj",
+    "outputPath": "/var/www/html/personal/employer/DBServer/net/core/restaurant-api/Restaurant.Infra/obj/",
+    "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+    ],
+    "originalTargetFrameworks": [
+      "netcoreapp3.1"
+    ],
+    "sources": {
+      "https://api.nuget.org/v3/index.json": {}
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "projectReferences": {
+          "/var/www/html/personal/employer/DBServer/net/core/restaurant-api/Restaurant.Core/Restaurant.Core.csproj": {
+            "projectPath": "/var/www/html/personal/employer/DBServer/net/core/restaurant-api/Restaurant.Core/Restaurant.Core.csproj"
+          }
+        }
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "netcoreapp3.1": {
+      "dependencies": {
+        "Microsoft.EntityFrameworkCore": {
+          "target": "Package",
+          "version": "[3.1.10, )"
+        },
+        "Microsoft.EntityFrameworkCore.Design": {
+          "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[3.1.10, )"
+        },
+        "Microsoft.EntityFrameworkCore.Relational": {
+          "target": "Package",
+          "version": "[3.1.10, )"
+        },
+        "Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore": {
+          "target": "Package",
+          "version": "[3.1.4, )"
+        },
+        "Pomelo.EntityFrameworkCore.MySql": {
+          "target": "Package",
+          "version": "[3.2.4, )"
+        },
+        "Pomelo.EntityFrameworkCore.MySql.Design": {
+          "target": "Package",
+          "version": "[1.1.2, )"
+        },
+        "StackExchange.Redis": {
+          "target": "Package",
+          "version": "[2.1.58, )"
+        },
+        "bogus": {
+          "target": "Package",
+          "version": "[32.0.2, )"
+        }
+      },
+      "imports": [
+        "net461",
+        "net462",
+        "net47",
+        "net471",
+        "net472",
+        "net48"
+      ],
+      "assetTargetFallback": true,
+      "warn": true,
+      "frameworkReferences": {
+        "Microsoft.NETCore.App": {
+          "privateAssets": "all"
+        }
+      },
+      "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.404/RuntimeIdentifierGraph.json"
+    }
+  }
+}

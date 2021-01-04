@@ -1,0 +1,46 @@
+  <section    class="d-flex justify-content-center align-content-center">
+
+        <div class="card d-flex justify-content-center align-content-center" style="width: 60em;" routerLinkActive="active">
+          <div class="card-header">
+            Pesquisa de opinião
+          </div>
+
+          <div class="card-body">
+            <p class="card-text">Qual nota você avaliar esse restaurante?</p>
+
+            <div class="row">
+              <div class="col-12">
+
+
+                <form action="" [formGroup]="restaurantForm" >
+                  <div class="col-md-12">
+                    <label class="col-form-label">Informe seu email:</label>
+                    <input type="text" class="form-control" formControlName="emailUser" >
+                  </div>
+
+                  <div class="d-flex justify-content-center">
+                    <rating [max]="max" formControlName="rating" [customTemplate]="tt"></rating>
+                  </div>
+                  <div class="col-md-12 mt-2">
+                    <button (click)="onFormSubmit(restaurantForm.value)" class="btn btn-success">Enviar avaliação</button>
+
+                  </div>
+
+                </form>
+              </div>
+            </div>
+
+
+          </div>
+          <div class="card-footer">
+            <ng-template #tt let-i="index" let-v="value">
+              <button class="btn btn-{{i < v ? 'warning' : 'default'}}"
+                      (click)="setVote(v)"
+              >
+                {{i < v ? '&#9733;' : '&#9734;'}}
+              </button>
+            </ng-template>
+          </div>
+        </div>
+
+  </section>
